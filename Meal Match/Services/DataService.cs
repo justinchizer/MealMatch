@@ -12,7 +12,13 @@ namespace Meal_Match.Services
 {
     public class DataService
     {
-        RootObject rootObject = null;
+        public async Task<IEnumerable<Models.Restaurant>> GetReataurantsAsync()
+        {
+
+            var rootObject = ZomatoAPICall().Result;
+            await Task.CompletedTask;
+            return Enumerable.Range(0, 7).Select(x => new Models.Restaurant(rootObject.restaurants[x].restaurant) { Name = Guid.NewGuid().ToString() });
+        }
 
         public async Task<RootObject> ZomatoAPICall()
         {
@@ -40,10 +46,11 @@ namespace Meal_Match.Services
 
             string responseAsString = null;
             responseAsString = await response.Content.ReadAsStringAsync();
-           
+            //OutputField.Text = responseAsString;
 
             //TODO: Add check to see if API Call recieved a response
 
+            RootObject rootObject = null;
 
             rootObject = JsonConvert.DeserializeObject<RootObject>(responseAsString);
 

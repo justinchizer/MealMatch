@@ -27,5 +27,14 @@ namespace Meal_Match.Views
             this.InitializeComponent();
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
+
+        private /*async*/ void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //var d = new ContentDialog();
+            //d.ContentTemplate = Resources["RestaurantDetailTemplate"] as DataTemplate;
+            //d.DataContext = e.ClickedItem;
+            //d.PrimaryButtonText = "Close";
+            //await d.ShowAsync();
+        }
     }
 }
