@@ -10,6 +10,10 @@ using Template10.Utils;
 using Template10.Common;
 using Windows.UI.Xaml.Navigation;
 using System.Runtime.CompilerServices;
+using Windows.UI.Xaml.Media.Imaging;
+using Meal_Match.Views;
+
+
 
 namespace Meal_Match.ViewModels
 {
@@ -20,122 +24,159 @@ namespace Meal_Match.ViewModels
 
         public MainPageViewModel()
         {
+            _dataService = new Services.DataService();
+            PropertyChanged += async (s,e) =>
+            {
+                _cancellationTokens.ForEach(x => x.Cancel());
+                await DisplayResults();
+            };
 
         }
 
+        public async Task DisplayResults()
+        {
+            var source = _cancellationTokens.AddAndReturn(new CancellationTokenSource());
+            await Task.Factory.StartNew(() =>
+            {
+            var restaurants = _dataService.listOfRestaurants().Result;
+            if (!source.Token.IsCancellationRequested)
+            {
+                DispatcherWrapper.Current().Dispatch(() => 
+                    {
+                    restaurants.Clear();
+                    foreach (var restaurant in restaurants)
+                    {
+                        restaurants.Add(restaurant);
+                    }
+                });
+                }
+            }, source.Token);
+        }
 
-        //public void DisplayResults()
+        public ObservableCollection<Restaurant> Restaurants { get; } = new ObservableCollection<Restaurant>();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public async Task SlotMachine()
         //{
-        //    //Info for Restaurant 0
-        //    if (rootObject.results_found > 0)
-        //    {
-        //        name0.Text = rootObject.restaurants[0].restaurant.name;
-        //        address0.Text = rootObject.restaurants[0].restaurant.location.address;
-        //        average_cost_for_two0.Text = "Cost for two: $" + rootObject.restaurants[0].restaurant.average_cost_for_two.ToString();
-        //        image0.Source = new BitmapImage(new Uri(rootObject.restaurants[0].restaurant.thumb, UriKind.Absolute));
-        //    }
-        //    else
-        //    {
-        //        resultsNum.Text = "There are no matches in the area";
-        //    }
+        //    int tempTime1 = randomNumber1();
+        //    await DelaySlot1(tempTime1);
 
+        //    int tempTime2 = randomNumber2();
+        //    await DelaySlot2(tempTime2);
 
-        //    //Info for Restaurant 1
-        //    if (rootObject.results_found > 1)
-        //    {
-        //        name1.Text = rootObject.restaurants[1].restaurant.name;
-        //        address1.Text = rootObject.restaurants[1].restaurant.location.address;
-        //        average_cost_for_two1.Text = "Cost for two: $" + rootObject.restaurants[1].restaurant.average_cost_for_two.ToString();
-        //        image1.Source = new BitmapImage(new Uri(rootObject.restaurants[1].restaurant.thumb, UriKind.Absolute));
-
-        //    }
-        //    else
-        //    {
-        //        resultsNum.Text = "There were only " + rootObject.results_found.ToString() + " restaurants that were a match.";
-        //    }
-
-        //    //Info for Restaurant 2
-        //    if (rootObject.results_found > 2)
-        //    {
-        //        name2.Text = rootObject.restaurants[2].restaurant.name;
-        //        address2.Text = rootObject.restaurants[2].restaurant.location.address;
-        //        average_cost_for_two2.Text = "Cost for two: $" + rootObject.restaurants[2].restaurant.average_cost_for_two.ToString();
-        //        image2.Source = new BitmapImage(new Uri(rootObject.restaurants[2].restaurant.thumb, UriKind.Absolute));
-        //    }
-        //    else
-        //    {
-        //        resultsNum.Text = "There were only " + rootObject.results_found.ToString() + " restaurants that were a match.";
-        //    }
-        //    //Info for Restaurant 3
-        //    if (rootObject.results_found > 3)
-        //    {
-        //        name3.Text = rootObject.restaurants[3].restaurant.name;
-        //        address3.Text = rootObject.restaurants[3].restaurant.location.address;
-        //        average_cost_for_two3.Text = "Cost for two: $" + rootObject.restaurants[3].restaurant.average_cost_for_two.ToString();
-        //        image3.Source = new BitmapImage(new Uri(rootObject.restaurants[3].restaurant.thumb, UriKind.Absolute));
-        //    }
-        //    else
-        //    {
-        //        resultsNum.Text = "There were only " + rootObject.results_found.ToString() + " restaurants that were a match.";
-        //    }
-
-        //    //Info for Restaurant 4
-        //    if (rootObject.results_found > 4)
-        //    {
-        //        name4.Text = rootObject.restaurants[4].restaurant.name;
-        //        address4.Text = rootObject.restaurants[4].restaurant.location.address;
-        //        average_cost_for_two4.Text = "Cost for two: $" + rootObject.restaurants[4].restaurant.average_cost_for_two.ToString();
-        //        image4.Source = new BitmapImage(new Uri(rootObject.restaurants[4].restaurant.thumb, UriKind.Absolute));
-        //    }
-        //    else
-        //    {
-        //        resultsNum.Text = "There were only " + rootObject.results_found.ToString() + " restaurants that were a match.";
-        //    }
-
-        //    //Info for Restaurant 5
-        //    if (rootObject.results_found > 5)
-        //    {
-        //        name5.Text = rootObject.restaurants[5].restaurant.name;
-        //        address5.Text = rootObject.restaurants[5].restaurant.location.address;
-        //        average_cost_for_two5.Text = "Cost for two: $" + rootObject.restaurants[5].restaurant.average_cost_for_two.ToString();
-        //        image5.Source = new BitmapImage(new Uri(rootObject.restaurants[5].restaurant.thumb, UriKind.Absolute));
-        //    }
-        //    else
-        //    {
-        //        resultsNum.Text = "There were only " + rootObject.results_found.ToString() + " restaurants that were a match.";
-        //    }
-
-        //    //Info for Restaurant 6
-        //    if (rootObject.results_found > 6)
-        //    {
-        //        name6.Text = rootObject.restaurants[6].restaurant.name;
-        //        address6.Text = rootObject.restaurants[6].restaurant.location.address;
-        //        average_cost_for_two6.Text = "Cost for two: $" + rootObject.restaurants[6].restaurant.average_cost_for_two.ToString();
-        //        image6.Source = new BitmapImage(new Uri(rootObject.restaurants[6].restaurant.thumb, UriKind.Absolute));
-        //    }
-        //    else
-        //    {
-        //        resultsNum.Text = "There were only " + rootObject.results_found.ToString() + " restaurants that were a match.";
-        //    }
-
-        //    //Info for Restaurant 7
-        //    if (rootObject.results_found > 7)
-        //    {
-        //        name7.Text = rootObject.restaurants[7].restaurant.name;
-        //        address7.Text = rootObject.restaurants[7].restaurant.location.address;
-        //        average_cost_for_two7.Text = "Cost for two: $" + rootObject.restaurants[7].restaurant.average_cost_for_two.ToString();
-        //        image7.Source = new BitmapImage(new Uri(rootObject.restaurants[7].restaurant.thumb, UriKind.Absolute));
-
-        //    }
-        //    else
-        //    {
-        //        resultsNum.Text = "There were only " + rootObject.results_found.ToString() + " restaurants that were a match.";
-        //    }
-
-        //    if (rootObject.results_found > 8)
-        //    {
-        //        resultsNum.Text = "";
-        //    }
+        //    int tempTime3 = randomNumber3();
+        //    await DelaySlot3(tempTime3);
         //}
+
+        //public int randomNumber1()
+        //{
+        //    Random randomNum1 = new Random();
+        //    int randomTime1 = randomNum1.Next(0, 100);
+
+
+        //    //testnum.Text = randomTime1.ToString();
+        //    return randomTime1;
+
+        //}
+
+        //public int randomNumber2()
+        //{
+        //    Random randomNum2 = new Random();
+        //    int randomTime2 = randomNum2.Next(0, 100);
+
+
+        //    //testnum.Text = randomTime2.ToString();
+        //    return randomTime2;
+
+        //}
+
+        //public int randomNumber3()
+        //{
+        //    Random randomNum3 = new Random();
+        //    int randomTime3 = randomNum3.Next(0, 100);
+
+
+        //    //testnum.Text = randomTime3.ToString();
+        //    return randomTime3;
+
+        //}
+
+
+        //public async Task DelaySlot1(int randomTime1)
+        //{
+        //    await Task.Delay(TimeSpan.FromSeconds(3));
+        //    if (randomTime1 % 2 == 0)
+        //    {
+        //        imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+        //    }
+        //    else if (randomTime1 % 2 == 1)
+        //    {
+        //        imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+        //    }
+        //    else
+        //    {
+        //        imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
+        //    }
+
+        //    await Task.CompletedTask;
+        //}
+
+
+        //public async Task DelaySlot2(int randomTime2)
+        //{
+        //    await Task.Delay(TimeSpan.FromSeconds(1));
+
+        //    if (randomTime2 % 2 == 0)
+        //    {
+        //        imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+        //    }
+        //    else if (randomTime2 % 2 == 1)
+        //    {
+        //        imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+        //    }
+        //    else
+        //    {
+        //        imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
+        //    }
+
+        //    await Task.CompletedTask;
+
+        //}
+
+        //public async Task DelaySlot3(int randomTime3)
+        //{
+        //    await Task.Delay(TimeSpan.FromSeconds(1));
+
+        //    if (randomTime3 % 2 == 0)
+        //    {
+        //        imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+        //    }
+        //    else if (randomTime3 % 2 == 1)
+        //    {
+        //        imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+        //    }
+        //    else
+        //    {
+        //        imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
+        //    }
+
+        //    await Task.CompletedTask;
+
+        //}
+
+
     }
 }

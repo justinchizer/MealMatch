@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Meal_Match.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -28,6 +29,7 @@ namespace Meal_Match.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
 
+
         private /*async*/ void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             //var d = new ContentDialog();
@@ -35,6 +37,23 @@ namespace Meal_Match.Views
             //d.DataContext = e.ClickedItem;
             //d.PrimaryButtonText = "Close";
             //await d.ShowAsync();
+        }
+
+        private void searchInput_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+
+        }
+        private async void search_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var mainPage = new MainPageViewModel();
+            await mainPage.DisplayResults();
+        }
+
+        private async void spinButton_Click(object sender, RoutedEventArgs e)
+        {
+            //var spin = new MainPageViewModel();
+            //await spin.SlotMachine();
         }
     }
 }

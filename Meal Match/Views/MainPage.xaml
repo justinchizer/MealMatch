@@ -12,20 +12,20 @@
     xmlns:vm="using:Meal_Match.ViewModels"
     mc:Ignorable="d">
 
-   <!-- <Page.DataContext>
+    <!-- <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
     </Page.DataContext>-->
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
         <RelativePanel Grid.Column="0" Background="Black">
             <TextBlock x:Name="ResultsPanel"
-                       Margin="24,24,24,0"
+                       Margin="10,10,38,14"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Foreground="DarkGreen"
                        Text="Results"  />
@@ -69,15 +69,73 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-         </RelativePanel>
+            <Grid x:Name="SearchBar"
+                  RelativePanel.AlignBottomWithPanel="True"
+                  RelativePanel.AlignLeftWithPanel="True"
+                  RelativePanel.AlignRightWithPanel="True">
+                <TextBox x:Name="searchInput"
+                         Margin="100,0,265,50"
+                         Style="{StaticResource AutoSuggestBoxTextBoxStyle}"
+                         TextWrapping="NoWrap"
+                         Text=""
+                         FontSize="24"
+                         Foreground="DarkGreen"
+                         Background="Black"
+                         PlaceholderText="Search for a Cuisine"
+                         KeyDown="searchInput_KeyDown" />
+                <Button x:Name="button_Search"
+                        Content="Search"
+                        Margin="0,0,10,50"
+                        Click="search_Click"
+                        FontSize="24"
+                        Foreground="DarkGreen"
+                        HorizontalAlignment="Right" Width="225"/>
 
-        <RelativePanel Grid.Column="2" Background="Blue">
-            
+
+            </Grid>
         </RelativePanel>
 
-        <RelativePanel Grid.Column="3" Background="DarkRed">
+        <RelativePanel Grid.Column="1" Background="Black">
+            <TextBlock x:Name="RestaruntInfoPanel"
+                       Margin="10,10,-75,0"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Foreground="DarkGreen"
+                       Text="Restarunt Detail"  />
 
         </RelativePanel>
+
+        <RelativePanel Grid.Column="2" Background="Black">
+            <TextBlock x:Name="SlotMachinePanel"
+                       Margin="10,10,38,14"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Foreground="DarkGreen"
+                       Text="Binary Slots"  />
+            <Image x:Name="imageslot1"
+                   Height="200"
+                   Width="200"
+                   RelativePanel.AlignHorizontalCenterWithPanel="False"
+                   RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <Image x:Name="imageslot2"
+                   Height="200"
+                   Width="200"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"
+                   RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <Image x:Name="imageslot3"
+                   Height="200"
+                   Width="200"
+                   RelativePanel.AlignRightWithPanel="True"
+                   RelativePanel.AlignVerticalCenterWithPanel="True"
+                   />
+            <Button x:Name="spinButton"
+                    Content="SPIN"
+                    FontSize="72"
+                    Foreground="DarkGreen"
+                    RelativePanel.Below="imageslot2"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True" 
+                    Padding="36,4"
+                    Margin="0,48,0,0"
+                    Click="spinButton_Click" />
+     </RelativePanel>
 
 
     </Grid>
