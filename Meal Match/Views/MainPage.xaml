@@ -12,11 +12,11 @@
     xmlns:vm="using:Meal_Match.ViewModels"
     mc:Ignorable="d">
 
-    <!-- <Page.DataContext>
-        <vm:MainPageViewModel x:Name="ViewModel" />
-    </Page.DataContext>-->
+        <Page.DataContext>
+            <vm:MainPageViewModel x:Name="ViewModel" />
+        </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
@@ -36,7 +36,7 @@
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="ResultsPanel"
-                      SelectionMode="None">
+                      SelectionMode="Single">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -54,6 +54,7 @@
                                        FontSize="24"
                                        Padding="0,0,8,0"
                                        RelativePanel.RightOf="Image"
+                                       Foreground="DarkGreen"
                                        Text="{Binding Name}"
                                        TextTrimming="CharacterEllipsis" />
                             <TextBlock x:Name="Address"
@@ -64,6 +65,11 @@
                                        RelativePanel.RightOf="Image"
                                        RelativePanel.Below="Address"
                                        Text="{Binding Price}" />
+                            <TextBlock x:Name="Rating"
+                                       RelativePanel.RightOf="Price"
+                                       RelativePanel.Below="Address"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       Text="{Binding Rating}" />
 
                         </RelativePanel>
                     </DataTemplate>
@@ -100,8 +106,12 @@
                        Margin="10,10,-75,0"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Foreground="DarkGreen"
-                       Text="Restarunt Detail"  />
+                       Text="Restaurant Detail"  />
+            <RelativePanel>
 
+                <WebView x:Name="RestaurantWebsite"
+                         Source="http://www.bing.com" />
+            </RelativePanel>
         </RelativePanel>
 
         <RelativePanel Grid.Column="2" Background="Black">
