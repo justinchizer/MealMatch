@@ -70,6 +70,8 @@ namespace Meal_Match.ViewModels
 
 
 
+
+
         //public async Task SlotMachine()
         //{
         //    int tempTime1 = randomNumber1();

@@ -37,6 +37,7 @@ namespace Meal_Match.Views
             //d.DataContext = e.ClickedItem;
             //d.PrimaryButtonText = "Close";
             //await d.ShowAsync();
+          
         }
 
         private void searchInput_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -55,7 +56,6 @@ namespace Meal_Match.Views
         {
            
         }
-
 
 
 

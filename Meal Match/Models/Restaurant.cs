@@ -120,6 +120,7 @@ namespace Meal_Match.Models
                 Rating = "\xE1CF\xE1CF\xE1CF\xE1CF\xE1CF"; //5
             }
             #endregion
+            URL = restaurant.url;
         }
 
 
@@ -131,5 +132,6 @@ namespace Meal_Match.Models
         public string Address { get; set; }
         public string Price { get; set; }
         public string Rating { get; set; }
+        public string URL { get; set; }
     }
 }
