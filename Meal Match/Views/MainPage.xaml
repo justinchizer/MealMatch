@@ -12,9 +12,9 @@
     xmlns:vm="using:Meal_Match.ViewModels"
     mc:Ignorable="d">
 
-    <!-- <Page.DataContext>
+    <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
-    </Page.DataContext>-->
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -36,7 +36,7 @@
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="ResultsPanel"
-                      SelectionMode="None">
+                      SelectionMode="Single">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -54,6 +54,7 @@
                                        FontSize="24"
                                        Padding="0,0,8,0"
                                        RelativePanel.RightOf="Image"
+                                       Foreground="DarkGreen"
                                        Text="{Binding Name}"
                                        TextTrimming="CharacterEllipsis" />
                             <TextBlock x:Name="Address"
@@ -64,6 +65,11 @@
                                        RelativePanel.RightOf="Image"
                                        RelativePanel.Below="Address"
                                        Text="{Binding Price}" />
+                            <TextBlock x:Name="Rating"
+                                       RelativePanel.RightOf="Price"
+                                       RelativePanel.Below="Address"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       Text="{Binding Rating}"/>
 
                         </RelativePanel>
                     </DataTemplate>
@@ -77,7 +83,7 @@
                          Margin="100,0,265,50"
                          Style="{StaticResource AutoSuggestBoxTextBoxStyle}"
                          TextWrapping="NoWrap"
-                         Text=""
+                         Text="{Binding CuisineType, Mode=TwoWay}"
                          FontSize="24"
                          Foreground="DarkGreen"
                          Background="Black"
@@ -86,10 +92,10 @@
                 <Button x:Name="button_Search"
                         Content="Search"
                         Margin="0,0,10,50"
-                        Click="search_Click"
+                        
                         FontSize="24"
                         Foreground="DarkGreen"
-                        HorizontalAlignment="Right" Width="225"/>
+                        HorizontalAlignment="Right" Width="225" Click="button_Search_Click"/>
 
 
             </Grid>
@@ -100,7 +106,14 @@
                        Margin="10,10,-75,0"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Foreground="DarkGreen"
-                       Text="Restarunt Detail"  />
+                       Text="Restaurant Detail"  />
+            <WebView x:Name="RestaurantInfo"
+                     Source="https://www.zomato.com/san-francisco"
+                     RelativePanel.Below="RestaruntInfoPanel"
+                     RelativePanel.AlignBottomWithPanel="True"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.AlignRightWithPanel="True"/>
+                     
 
         </RelativePanel>
 

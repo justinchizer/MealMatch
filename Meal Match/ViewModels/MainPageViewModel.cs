@@ -25,11 +25,11 @@ namespace Meal_Match.ViewModels
         public MainPageViewModel()
         {
             _dataService = new Services.DataService();
-            PropertyChanged += async (s,e) =>
-            {
+            //PropertyChanged += async (s,e) =>
+           // {
                 _cancellationTokens.ForEach(x => x.Cancel());
-                await DisplayResults();
-            };
+                 DisplayResults();
+           // };
 
         }
 
@@ -43,10 +43,10 @@ namespace Meal_Match.ViewModels
             {
                 DispatcherWrapper.Current().Dispatch(() => 
                     {
-                    restaurants.Clear();
+                    Restaurants.Clear();
                     foreach (var restaurant in restaurants)
                     {
-                        restaurants.Add(restaurant);
+                        Restaurants.Add(restaurant);
                     }
                 });
                 }
@@ -56,7 +56,8 @@ namespace Meal_Match.ViewModels
         public ObservableCollection<Restaurant> Restaurants { get; } = new ObservableCollection<Restaurant>();
 
 
-
+        string _CuisineType = default(string);
+        public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
 
 
 
