@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Meal_Match.Models;
+using Meal_Match.ViewModels;
 
 
 namespace Meal_Match.Services
 {
     public class DataService
     {
+
+       // public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
+
         public async Task<IEnumerable<Models.Restaurant>> GetReataurantsAsync()
         {
 

@@ -30,21 +30,6 @@ namespace Meal_Match.Views
         }
 
 
-        private /*async*/ void ListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //var d = new ContentDialog();
-            //d.ContentTemplate = Resources["RestaurantDetailTemplate"] as DataTemplate;
-            //d.DataContext = e.ClickedItem;
-            //d.PrimaryButtonText = "Close";
-            //await d.ShowAsync();
-          
-        }
-
-        private void searchInput_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-
-        }
-        
 
         private async void spinButton_Click(object sender, RoutedEventArgs e)
         {
@@ -52,11 +37,7 @@ namespace Meal_Match.Views
             //await spin.SlotMachine();
         }
 
-        private void button_Search_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
-
+        
 
 
 

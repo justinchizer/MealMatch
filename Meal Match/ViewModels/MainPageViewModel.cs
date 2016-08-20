@@ -25,11 +25,11 @@ namespace Meal_Match.ViewModels
         public MainPageViewModel()
         {
             _dataService = new Services.DataService();
-            //PropertyChanged += async (s,e) =>
-           // {
+            PropertyChanged += async (s,e) =>
+            {
                 _cancellationTokens.ForEach(x => x.Cancel());
-                 DisplayResults();
-           // };
+                 await DisplayResults();
+            };
 
         }
 

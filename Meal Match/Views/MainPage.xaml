@@ -31,15 +31,11 @@
                        Text="Results"  />
             <ListView x:Name="RestaurantResultPanel"
                       IsItemClickEnabled="True"
-                      ItemClick="ListView_ItemClick"
                       ItemsSource="{Binding Restaurants}"
                       RelativePanel.AlignBottomWithPanel="True"
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="ResultsPanel"
-                      SelectedValue="{Binding Restaurants[0]}"
-                      SelectedValuePath="@Name"
-                      
                       SelectionMode="Single">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -79,30 +75,26 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Grid x:Name="SearchBar"
+            <RelativePanel x:Name="SearchBar"
                   RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignRightWithPanel="True">
                 <TextBox x:Name="searchInput"
-                         Margin="100,0,265,50"
+                         Margin="100,0,24,50"
                          Style="{StaticResource AutoSuggestBoxTextBoxStyle}"
                          TextWrapping="NoWrap"
                          Text="{Binding CuisineType, Mode=TwoWay}"
                          FontSize="24"
                          Foreground="DarkGreen"
-                         Background="Black"
-                         PlaceholderText="Search for a Cuisine"
-                         KeyDown="searchInput_KeyDown" />
+                         Background="Black"  
+                         PlaceholderText="Search for a Cuisine" />
                 <Button x:Name="button_Search"
                         Content="Search"
-                        Margin="0,0,10,50"
-                        
                         FontSize="24"
                         Foreground="DarkGreen"
-                        HorizontalAlignment="Right" Width="225" Click="button_Search_Click"/>
+                        RelativePanel.RightOf="searchInput"/>
 
-
-            </Grid>
+            </RelativePanel>
         </RelativePanel>
 
         <RelativePanel Grid.Column="1" Background="Black">
@@ -113,10 +105,10 @@
                        Text="Restaurant Detail"  />
             <WebView x:Name="RestaurantInfo"
                      Source="{Binding ElementName=RestaurantResultPanel, Path=SelectedItem.URL}"
-                     RelativePanel.Below="RestaruntInfoPanel"
                      RelativePanel.AlignBottomWithPanel="True"
                      RelativePanel.AlignLeftWithPanel="True"
-                     RelativePanel.AlignRightWithPanel="True" Margin="-10,-37.333,10.333,37"/>
+                     RelativePanel.AlignRightWithPanel="True"
+                     RelativePanel.Below="RestaruntInfoPanel"/>
                      
 
         </RelativePanel>
