@@ -7,14 +7,14 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Meal_Match.Models;
 using Meal_Match.ViewModels;
-
+using Template10.Mvvm;
 
 namespace Meal_Match.Services
 {
-    public class DataService
+    public class DataService : BindableBase
     {
-
-       // public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
+        string _CuisineType = default(string);
+       public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
 
         public async Task<IEnumerable<Models.Restaurant>> GetReataurantsAsync()
         {

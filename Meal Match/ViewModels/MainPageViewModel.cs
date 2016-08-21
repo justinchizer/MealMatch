@@ -24,6 +24,7 @@ namespace Meal_Match.ViewModels
 
         public MainPageViewModel()
         {
+            
             _dataService = new Services.DataService();
             PropertyChanged += async (s,e) =>
             {

@@ -29,7 +29,7 @@ namespace Meal_Match.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
 
-
+        
 
         private async void spinButton_Click(object sender, RoutedEventArgs e)
         {
