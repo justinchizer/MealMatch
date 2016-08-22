@@ -159,6 +159,29 @@
                        Text="{Binding ElementName=RestaurantResultPanel, Path= SelectedItem.URL}"
                        VerticalAlignment="Top" 
                        Width="470" />
+            <Button x:Name="AboutButton"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Content="&#xE712;"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="36"
+                    Foreground="DarkGreen"
+                    Background="Transparent" >
+                <Button.Flyout>
+                    <Flyout>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="About"
+                                           Foreground="DarkGreen"
+                                           FontSize="24"
+                                           Tapped="TextBlock_Tapped"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+                    
+                    
         </RelativePanel>
 
 

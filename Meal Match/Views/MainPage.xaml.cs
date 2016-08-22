@@ -29,7 +29,7 @@ namespace Meal_Match.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
 
-        
+      
 
         private async void spinButton_Click(object sender, RoutedEventArgs e)
         {
@@ -37,7 +37,17 @@ namespace Meal_Match.Views
             //await spin.SlotMachine();
         }
 
-        
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AboutPage));
+        }
+
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AboutPage));
+        }
+
+
 
 
 
