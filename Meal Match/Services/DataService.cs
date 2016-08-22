@@ -14,7 +14,7 @@ namespace Meal_Match.Services
     public class DataService : BindableBase
     {
         string _CuisineType = default(string);
-       public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
+        public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
 
         public async Task<IEnumerable<Models.Restaurant>> GetReataurantsAsync()
         {
@@ -33,7 +33,7 @@ namespace Meal_Match.Services
 
             string ZOMATO_API = "https://developers.zomato.com/api/v2.1/search?q=";
 
-            string CUISINE_TYPE = "Mexican";
+            string CUISINE_TYPE = CuisineType;
 
             string LOCATION = "&count=8&lat=37.784627&lon=-122.398458&radius=1600&sort=rating";
 

@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <RelativePanel>
             <TextBlock x:Name="AboutPanel"
-                       Margin="10,10,38,14"
+                       Margin="12,12,38,14"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Foreground="DarkGreen"
                        Text="About"  />
@@ -19,18 +19,21 @@
                        RelativePanel.AlignLeftWithPanel="True"
                        Text="Meal Match"
                        FontSize="24"
+                       Margin="12"
                        Foreground="DarkGreen" 
                        FontWeight="Bold"/>
             <TextBlock x:Name="VersionNumber"
                        RelativePanel.Below="AboutInfo"
                        RelativePanel.AlignLeftWithPanel="True"
                        Text="Version: 1.0"
+                       Margin="12"
                        FontSize="24"
                        Foreground="DarkGreen" />
             <TextBlock x:Name="ME"
                        RelativePanel.Below="VersionNumber"
                        RelativePanel.AlignLeftWithPanel="True"
                        Text="Justin Chizer"
+                       Margin="12"
                        FontSize="24"
                        Foreground="DarkGreen" />
         </RelativePanel>

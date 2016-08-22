@@ -37,7 +37,7 @@
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="ResultsPanel"
-                      SelectionMode="Single">
+                      SelectionMode="Single" Margin="0,-0.333,0.333,0">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -88,13 +88,9 @@
                          FontSize="24"
                          Foreground="DarkGreen"
                          Background="Black"  
-                         PlaceholderText="Search for a Cuisine" >
-                    <Interactivity:Interaction.Behaviors>
-                        <Behaviors:KeyBehavior Key="Enter">
-                            <Core:InvokeCommandAction Command="{Binding CuisineType, Mode=OneTime}" />
-                        </Behaviors:KeyBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </TextBox>
+                         PlaceholderText="Search for a Cuisine" />
+
+
                 <Button x:Name="button_Search"
                         Content="Search"
                         FontSize="24"

@@ -37,11 +37,6 @@ namespace Meal_Match.Views
             //await spin.SlotMachine();
         }
 
-        private void AboutButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(AboutPage));
-        }
-
         private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(AboutPage));
