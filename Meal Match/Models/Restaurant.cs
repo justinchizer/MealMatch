@@ -121,6 +121,7 @@ namespace Meal_Match.Models
             }
             #endregion
             URL = restaurant.url;
+            
         }
 
 

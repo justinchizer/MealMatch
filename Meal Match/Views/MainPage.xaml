@@ -37,7 +37,7 @@
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="ResultsPanel"
-                      SelectionMode="Single" Margin="0,-0.333,0.333,0">
+                      SelectionMode="Single" Margin="-10,-14.333,10.333,14">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -105,7 +105,7 @@
                        Margin="10,10,-75,0"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Foreground="DarkGreen"
-                       Text="Restaurant Detail"  />
+                       Text="Restaurant Detail" />
             <WebView x:Name="RestaurantInfo"
                      Source="{Binding ElementName=RestaurantResultPanel, Path=SelectedItem.URL}"
                      RelativePanel.AlignBottomWithPanel="True"
@@ -147,14 +147,7 @@
                     Padding="36,4"
                     Margin="0,48,0,0"
                     Click="spinButton_Click" />
-            <TextBlock x:Name="testList" 
-                       HorizontalAlignment="Left" 
-                       Height="64" 
-                       Margin="57,192,-465,-236" 
-                       TextWrapping="Wrap" 
-                       Text="{Binding ElementName=RestaurantResultPanel, Path= SelectedItem.URL}"
-                       VerticalAlignment="Top" 
-                       Width="470" />
+            
             <Button x:Name="AboutButton"
                     RelativePanel.AlignTopWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True"

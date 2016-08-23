@@ -13,6 +13,9 @@ namespace Meal_Match.Services
 {
     public class DataService : BindableBase
     {
+        //public string CuisineType { get; private set; }
+
+
         string _CuisineType = default(string);
         public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
 
@@ -26,9 +29,9 @@ namespace Meal_Match.Services
 
         public async Task<RootObject> ZomatoAPICall()
         {
-
-            // Create a client
-            HttpClient httpClient = new HttpClient();
+            
+        // Create a client
+        HttpClient httpClient = new HttpClient();
 
 
             string ZOMATO_API = "https://developers.zomato.com/api/v2.1/search?q=";
@@ -70,6 +73,8 @@ namespace Meal_Match.Services
             await Task.CompletedTask;
 
             return serchResults.restaurants;
+
+
         }
     }
 }
