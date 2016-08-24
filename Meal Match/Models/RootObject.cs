@@ -14,10 +14,4 @@ namespace Meal_Match.Models
         public List<Restaurant> restaurants { get; set; }
         
     }
-    //public RootObject(RootObject number)
-    //{
-    //    NumberOfResults = number.results_shown;
-    //}
-
-    //public int NumberOfResults { get; set; }
 }

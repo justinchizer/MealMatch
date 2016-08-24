@@ -13,19 +13,17 @@ namespace Meal_Match.Services
 {
     public class DataService : BindableBase
     {
-        //public string CuisineType { get; private set; }
-
-
+        
         string _CuisineType = default(string);
         public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
 
-        public async Task<IEnumerable<Models.Restaurant>> GetReataurantsAsync()
-        {
+        //public async Task<IEnumerable<Models.Restaurant>> GetReataurantsAsync()
+        //{
 
-            var rootObject = ZomatoAPICall().Result;
-            await Task.CompletedTask;
-            return Enumerable.Range(0, 7).Select(x => new Models.Restaurant(rootObject.restaurants[x].restaurant) { Name = Guid.NewGuid().ToString() });
-        }
+        //    var rootObject = ZomatoAPICall().Result;
+        //    await Task.CompletedTask;
+        //    return Enumerable.Range(0, 7).Select(x => new Models.Restaurant(rootObject.restaurants[x].restaurant) { Name = Guid.NewGuid().ToString() });
+        //}
 
         public async Task<RootObject> ZomatoAPICall()
         {

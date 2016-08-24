@@ -26,7 +26,7 @@
 
         <RelativePanel Grid.Column="0" Background="Black">
             <TextBlock x:Name="ResultsPanel"
-                       Margin="10,10,38,14"
+                       Margin="12,12,36,12"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Foreground="DarkGreen"
                        Text="Results"  />
@@ -81,28 +81,30 @@
                   RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignRightWithPanel="True">
                 <TextBox x:Name="searchInput"
-                         Margin="100,0,24,50"
+                         Margin="36,36,36,36"
                          Style="{StaticResource AutoSuggestBoxTextBoxStyle}"
                          TextWrapping="NoWrap"
                          Text="{Binding CuisineType, Mode=TwoWay}"
                          FontSize="24"
                          Foreground="DarkGreen"
                          Background="Black"  
-                         PlaceholderText="Search for a Cuisine" />
+                         PlaceholderText="Search for a Cuisine" 
+                         RelativePanel.AlignLeftWithPanel="True"/>
 
 
                 <Button x:Name="button_Search"
                         Content="Search"
                         FontSize="24"
                         Foreground="DarkGreen"
-                        RelativePanel.RightOf="searchInput"/>
+                        RelativePanel.RightOf="searchInput"
+                        RelativePanel.AlignVerticalCenterWith="searchInput"/>
 
             </RelativePanel>
         </RelativePanel>
 
         <RelativePanel Grid.Column="1" Background="Black">
             <TextBlock x:Name="RestaruntInfoPanel"
-                       Margin="10,10,-75,0"
+                       Margin="12,12,36,12"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Foreground="DarkGreen"
                        Text="Restaurant Detail" />
@@ -118,10 +120,19 @@
 
         <RelativePanel Grid.Column="2" Background="Black">
             <TextBlock x:Name="SlotMachinePanel"
-                       Margin="10,10,38,14"
+                       Margin="12,12,36,12"
                        Style="{StaticResource HeaderTextBlockStyle}"
                        Foreground="DarkGreen"
                        Text="Binary Slots"  />
+            <TextBlock x:Name="Instruction_TextBlock"
+                       RelativePanel.Below="SlotMachinePanel"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       Text=""
+                       FontSize="24"
+                       TextWrapping="WrapWholeWords"
+                       Foreground="DarkGreen"
+                       />
             <Image x:Name="imageslot1"
                    Height="200"
                    Width="200"

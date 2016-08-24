@@ -60,22 +60,5 @@ namespace Meal_Match.ViewModels
 
         string _CuisineType = default(string);
         public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
