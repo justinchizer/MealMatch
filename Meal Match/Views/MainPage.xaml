@@ -113,7 +113,8 @@
                      RelativePanel.AlignBottomWithPanel="True"
                      RelativePanel.AlignLeftWithPanel="True"
                      RelativePanel.AlignRightWithPanel="True"
-                     RelativePanel.Below="RestaruntInfoPanel"/>
+                     RelativePanel.Below="RestaruntInfoPanel"
+                     DefaultBackgroundColor="Black"/>
                      
 
         </RelativePanel>
@@ -128,7 +129,7 @@
                        RelativePanel.Below="SlotMachinePanel"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
-                       Text=""
+                       Text="Welcome to Meal Match! The app that ends the conversation of where to go for lunch. Simply search for a type of Cuisine like Mexican, Chinese, or Singaporean food. The top 8 results near the Reactor will appear. You can simply choose a place on your own or spin the Binary Slot Machine to select a restaruant for you. For example: 0 1 1 = 3 so go to Restaurnt 3 on the list."
                        FontSize="24"
                        TextWrapping="WrapWholeWords"
                        Foreground="DarkGreen"
