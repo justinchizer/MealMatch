@@ -33,11 +33,13 @@
             <ListView x:Name="RestaurantResultPanel"
                       IsItemClickEnabled="True"
                       ItemsSource="{Binding Restaurants}"
+                      
                       RelativePanel.AlignBottomWithPanel="True"
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="ResultsPanel"
-                      SelectionMode="Single" Margin="-10,-14.333,10.333,14">
+                      RelativePanel.Above="SearchBar"
+                      SelectionMode="Single">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -47,6 +49,12 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <RelativePanel>
+                            <TextBlock x:Name="ResultNumber"
+                                       RelativePanel.LeftOf="Image"
+                                       Text="{Binding Indexes, Mode=TwoWay}"
+                                       FontSize="36"
+                                       Foreground="DarkGreen"
+                                       RelativePanel.AlignLeftWithPanel="True"/>
                             <Image x:Name="Image"
                                    Height="56"
                                    Margin="0,0,12,0"
@@ -130,15 +138,18 @@
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        Text="Welcome to Meal Match! The app that ends the conversation of where to go for lunch. Simply search for a type of Cuisine like Mexican, Chinese, or Singaporean food. The top 8 results near the Reactor will appear. You can simply choose a place on your own or spin the Binary Slot Machine to select a restaruant for you. For example: 0 1 1 = 3 so go to Restaurnt 3 on the list."
-                       FontSize="24"
+                       Style="{StaticResource BaseTextBlockStyle}"
                        TextWrapping="WrapWholeWords"
                        Foreground="DarkGreen"
                        />
             <Image x:Name="imageslot1"
-                   Height="200"
-                   Width="200"
-                   RelativePanel.AlignHorizontalCenterWithPanel="False"
-                   RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                     Height="200"
+                     Width="200"
+                     RelativePanel.AlignHorizontalCenterWithPanel="False"
+                     RelativePanel.AlignVerticalCenterWithPanel="True"
+                     />
+
+
             <Image x:Name="imageslot2"
                    Height="200"
                    Width="200"
@@ -159,7 +170,13 @@
                     Padding="36,4"
                     Margin="0,48,0,0"
                     Click="spinButton_Click" />
-            
+            <MediaElement x:Name="myMediaElement"
+                          Height="1"
+                          Width="1"
+                          Source="/Assets/SlotMachineSound.wav"
+                          AutoPlay="False" />
+
+
             <Button x:Name="AboutButton"
                     RelativePanel.AlignTopWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True"

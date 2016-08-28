@@ -16,6 +16,7 @@ using Meal_Match.ViewModels;
 using Meal_Match.Models;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -34,11 +35,27 @@ namespace Meal_Match.Views
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
 
-        //public MainPageViewModel ViewModel => this.DataContext as MainPageViewModel;
+        
+        
 
         private async void spinButton_Click(object sender, RoutedEventArgs e)
         {
-            //await SlotMachine();
+            
+            myMediaElement.Play();
+            for(int i=0; i<20; i++)
+            {
+                await Task.Delay(100);
+                imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+                imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+                imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+
+                await Task.Delay(100);
+                imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+                imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+                imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+
+            }
+
         }
 
         private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
@@ -49,115 +66,115 @@ namespace Meal_Match.Views
 
 
 
-        //#region SlotMachine
+        #region SlotMachine
 
-        //public async Task SlotMachine()
-        //{
-        //    int tempTime1 = randomNumber1();
-        //    await DelaySlot1(tempTime1, rootObject);
+        public async Task SlotMachine()
+        {
+            int tempTime1 = randomNumber1();
+            await DelaySlot1(tempTime1, rootObject);
 
-        //    int tempTime2 = randomNumber2();
-        //    await DelaySlot2(tempTime2, rootObject);
+            int tempTime2 = randomNumber2();
+            await DelaySlot2(tempTime2, rootObject);
 
-        //    int tempTime3 = randomNumber3();
-        //    await DelaySlot3(tempTime3, rootObject);
-        //}
+            int tempTime3 = randomNumber3();
+            await DelaySlot3(tempTime3, rootObject);
+        }
 
-        //public int randomNumber1()
-        //{
-        //    Random randomNum1 = new Random();
-        //    int randomTime1 = randomNum1.Next(0, 100);
-
-
-        //    //testnum.Text = randomTime1.ToString();
-        //    return randomTime1;
-
-        //}
-
-        //public int randomNumber2()
-        //{
-        //    Random randomNum2 = new Random();
-        //    int randomTime2 = randomNum2.Next(0, 100);
+        public int randomNumber1()
+        {
+            Random randomNum1 = new Random();
+            int randomTime1 = randomNum1.Next(0, 100);
 
 
-        //    // testnum.Text = randomTime2.ToString();
-        //    return randomTime2;
+            //testnum.Text = randomTime1.ToString();
+            return randomTime1;
 
-        //}
+        }
 
-        //public int randomNumber3()
-        //{
-        //    Random randomNum3 = new Random();
-        //    int randomTime3 = randomNum3.Next(0, 100);
-
-
-        //    // testnum.Text = randomTime3.ToString();
-        //    return randomTime3;
-
-        //}
+        public int randomNumber2()
+        {
+            Random randomNum2 = new Random();
+            int randomTime2 = randomNum2.Next(0, 100);
 
 
-        //private async Task DelaySlot1(int randomTime1, RootObject rootObject)
-        //{
-        //    await Task.Delay(TimeSpan.FromSeconds(3));
-        //    if (randomTime1 % 2 == 0 && rootObject.results_shown > 4)
-        //    {
-        //        imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
-        //    }
-        //    else if (randomTime1 % 2 == 1 && rootObject.results_shown > 4)
-        //    {
-        //        imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
-        //    }
-        //    else
-        //    {
-        //        imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
-        //    }
+            // testnum.Text = randomTime2.ToString();
+            return randomTime2;
 
-        //    await Task.CompletedTask;
-        //}
+        }
+
+        public int randomNumber3()
+        {
+            Random randomNum3 = new Random();
+            int randomTime3 = randomNum3.Next(0, 100);
 
 
-        //private async Task DelaySlot2(int randomTime2, RootObject rootObject)
-        //{
-        //    await Task.Delay(TimeSpan.FromSeconds(1));
+            // testnum.Text = randomTime3.ToString();
+            return randomTime3;
 
-        //    if (randomTime2 % 2 == 0 && rootObject.results_shown > 2)
-        //    {
-        //        imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
-        //    }
-        //    else if (randomTime2 % 2 == 1 && rootObject.results_shown > 2)
-        //    {
-        //        imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
-        //    }
-        //    else
-        //    {
-        //        imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
-        //    }
+        }
 
-        //    await Task.CompletedTask;
 
-        //}
+        private async Task DelaySlot1(int randomTime1, RootObject rootObject)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(3));
+            if (randomTime1 % 2 == 0 && rootObject.results_shown > 4)
+            {
+                imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+            }
+            else if (randomTime1 % 2 == 1 && rootObject.results_shown > 4)
+            {
+                imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+            }
+            else
+            {
+                imageslot1.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
+            }
 
-        //private async Task DelaySlot3(int randomTime3, RootObject rootObject)
-        //{
-        //    await Task.Delay(TimeSpan.FromSeconds(1));
+            await Task.CompletedTask;
+        }
 
-        //    if (randomTime3 % 2 == 0 && rootObject.results_shown > 0)
-        //    {
-        //        imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
-        //    }
-        //    else if (randomTime3 % 2 == 1 && rootObject.results_shown > 0)
-        //    {
-        //        imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
-        //    }
-        //    else
-        //    {
-        //        imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
-        //    }
 
-        //    await Task.CompletedTask;
+        private async Task DelaySlot2(int randomTime2, RootObject rootObject)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(1));
 
-        //}
-        //#endregion
+            if (randomTime2 % 2 == 0 && rootObject.results_shown > 2)
+            {
+                imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+            }
+            else if (randomTime2 % 2 == 1 && rootObject.results_shown > 2)
+            {
+                imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+            }
+            else
+            {
+                imageslot2.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
+            }
+
+            await Task.CompletedTask;
+
+        }
+
+        private async Task DelaySlot3(int randomTime3, RootObject rootObject)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(1));
+
+            if (randomTime3 % 2 == 0 && rootObject.results_shown > 0)
+            {
+                imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix0.PNG"));
+            }
+            else if (randomTime3 % 2 == 1 && rootObject.results_shown > 0)
+            {
+                imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Matrix1.PNG"));
+            }
+            else
+            {
+                imageslot3.Source = new BitmapImage(new Uri("ms-appx:///Assets/MatrixX.PNG"));
+            }
+
+            await Task.CompletedTask;
+
+        }
+        #endregion
     }
 }

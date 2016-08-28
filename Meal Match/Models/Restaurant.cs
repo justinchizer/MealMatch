@@ -121,7 +121,8 @@ namespace Meal_Match.Models
             }
             #endregion
             URL = restaurant.url;
-            
+            //Index = Restaurant.Count;
+
         }
 
 
@@ -134,5 +135,6 @@ namespace Meal_Match.Models
         public string Price { get; set; }
         public string Rating { get; set; }
         public string URL { get; set; }
+        
     }
 }

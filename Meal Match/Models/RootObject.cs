@@ -13,5 +13,6 @@ namespace Meal_Match.Models
         public int results_shown { get; set; }
         public List<Restaurant> restaurants { get; set; }
         
+        
     }
 }

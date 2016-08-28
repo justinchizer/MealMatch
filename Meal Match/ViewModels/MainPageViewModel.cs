@@ -49,6 +49,8 @@ namespace Meal_Match.ViewModels
                             foreach (var restaurant in restaurants)
                             {
                                 Restaurants.Add(restaurant);
+                                var Indexes = Restaurants.Count.ToString();
+
                             }
                         });
                 }
@@ -57,8 +59,10 @@ namespace Meal_Match.ViewModels
 
         public ObservableCollection<Restaurant> Restaurants { get; } = new ObservableCollection<Restaurant>();
 
-
         string _CuisineType = default(string);
         public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
+
+        string _Indexes = default(string);
+        public string Indexes { get { return _Indexes; } set { Set(ref _Indexes, value); } }
     }
 }
