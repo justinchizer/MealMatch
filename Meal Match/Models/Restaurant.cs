@@ -41,7 +41,7 @@ namespace Meal_Match.Models
                 restaurant.user_rating.aggregate_rating == "0.3" ||
                 restaurant.user_rating.aggregate_rating == "0.4")
             {
-                Rating = "\xE1CE\xE1CE\xE1CE\xE1CE\xE1CE"; //0
+                Rating = "\xE1CE"; //0
             }
             else if (restaurant.user_rating.aggregate_rating == "0.5" ||
                      restaurant.user_rating.aggregate_rating == "0.6" ||
@@ -49,7 +49,7 @@ namespace Meal_Match.Models
                      restaurant.user_rating.aggregate_rating == "0.8" ||
                      restaurant.user_rating.aggregate_rating == "0.9")
             {
-                Rating = "\xE7C6\xE1CE\xE1CE\xE1CE\xE1CE"; //0.5
+                Rating = "\xE7C6"; //0.5
             }
             else if (restaurant.user_rating.aggregate_rating == "1.0" ||
                      restaurant.user_rating.aggregate_rating == "1.1" ||
@@ -57,7 +57,7 @@ namespace Meal_Match.Models
                      restaurant.user_rating.aggregate_rating == "1.3" ||
                      restaurant.user_rating.aggregate_rating == "1.4")
             {
-                Rating = "\xE1CF\xE1CE\xE1CE\xE1CE\xE1CE"; //1
+                Rating = "\xE1CF"; //1
             }
             else if (restaurant.user_rating.aggregate_rating == "1.5" ||
                      restaurant.user_rating.aggregate_rating == "1.6" ||
@@ -65,7 +65,7 @@ namespace Meal_Match.Models
                      restaurant.user_rating.aggregate_rating == "1.8" ||
                      restaurant.user_rating.aggregate_rating == "1.9")
             {
-                Rating = "\xE1CF\xE7C6\xE1CE\xE1CE\xE1CE"; //1.5
+                Rating = "\xE1CF\xE7C6"; //1.5
             }
             else if (restaurant.user_rating.aggregate_rating == "2.0" ||
                      restaurant.user_rating.aggregate_rating == "2.1" ||
@@ -73,7 +73,7 @@ namespace Meal_Match.Models
                      restaurant.user_rating.aggregate_rating == "2.3" ||
                      restaurant.user_rating.aggregate_rating == "2.4")
             {
-                Rating = "\xE1CF\xE1CF\xE1CE\xE1CE\xE1CE"; //2
+                Rating = "\xE1CF\xE1CF"; //2
             }
             else if (restaurant.user_rating.aggregate_rating == "2.5" ||
                      restaurant.user_rating.aggregate_rating == "2.6" ||
@@ -81,7 +81,7 @@ namespace Meal_Match.Models
                      restaurant.user_rating.aggregate_rating == "2.8" ||
                      restaurant.user_rating.aggregate_rating == "2.9")
             {
-                Rating = "\xE1CF\xE1CF\xE7C6\xE1CE\xE1CE"; //2.5
+                Rating = "\xE1CF\xE1CF\xE7C6"; //2.5
             }
             else if (restaurant.user_rating.aggregate_rating == "3.0" ||
                      restaurant.user_rating.aggregate_rating == "3.1" ||
@@ -89,7 +89,7 @@ namespace Meal_Match.Models
                      restaurant.user_rating.aggregate_rating == "3.3" ||
                      restaurant.user_rating.aggregate_rating == "3.4")
             {
-                Rating = "\xE1CF\xE1CF\xE1CF\xE1CE\xE1CE"; //3
+                Rating = "\xE1CF\xE1CF\xE1CF"; //3
             }
             else if (restaurant.user_rating.aggregate_rating == "3.5" ||
                      restaurant.user_rating.aggregate_rating == "3.6" ||
@@ -97,14 +97,14 @@ namespace Meal_Match.Models
                      restaurant.user_rating.aggregate_rating == "3.8" ||
                      restaurant.user_rating.aggregate_rating == "3.9")
             {
-                Rating = "\xE1CF\xE1CF\xE1CF\xE7C6\xE1CE"; //3.5
+                Rating = "\xE1CF\xE1CF\xE1CF\xE7C6"; //3.5
             }
             else if (restaurant.user_rating.aggregate_rating == "4.0" ||
                 restaurant.user_rating.aggregate_rating == "4.1" ||
                 restaurant.user_rating.aggregate_rating == "4.2" ||
                 restaurant.user_rating.aggregate_rating == "4.3")
             {
-                Rating = "\xE1CF\xE1CF\xE1CF\xE1CF\xE1CE"; //4
+                Rating = "\xE1CF\xE1CF\xE1CF\xE1CF"; //4
             }
             else if (restaurant.user_rating.aggregate_rating == "4.4" ||
                      restaurant.user_rating.aggregate_rating == "4.5" ||
@@ -121,11 +121,8 @@ namespace Meal_Match.Models
             }
             #endregion
             URL = restaurant.url;
-            //Index = Restaurant.Count;
-
+            
         }
-
-
 
         public Restaurant2 restaurant { get; set; }
 
@@ -134,7 +131,6 @@ namespace Meal_Match.Models
         public string Address { get; set; }
         public string Price { get; set; }
         public string Rating { get; set; }
-        public string URL { get; set; }
-        
+        public string URL { get; set; } 
     }
 }

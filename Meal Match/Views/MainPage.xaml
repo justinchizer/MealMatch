@@ -51,7 +51,7 @@
                         <RelativePanel>
                             <TextBlock x:Name="ResultNumber"
                                        RelativePanel.LeftOf="Image"
-                                       Text="{Binding Indexes, Mode=TwoWay}"
+                                       Text="{Binding FianlIndex}"
                                        FontSize="36"
                                        Foreground="DarkGreen"
                                        RelativePanel.AlignLeftWithPanel="True"/>
