@@ -24,11 +24,11 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
-        <RelativePanel Grid.Column="0" Background="Black">
+        <RelativePanel Grid.Column="0" Background="#FFF3F3F3">
             <TextBlock x:Name="ResultsPanel"
                        Margin="12,12,36,12"
-                       Style="{StaticResource HeaderTextBlockStyle}"
-                       Foreground="DarkGreen"
+                       Style="{StaticResource TitleTextBlockStyle}"
+                       Foreground="#FFCB202D"
                        Text="Results"  />
             <ListView x:Name="RestaurantResultPanel"
                       IsItemClickEnabled="True"
@@ -39,7 +39,9 @@
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="ResultsPanel"
                       RelativePanel.Above="SearchBar"
-                      SelectionMode="Single">
+                      SelectionMode="Single"
+                      Background="#FFF3F3F3">
+                
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -48,13 +50,8 @@
                 </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <RelativePanel>
-                            <TextBlock x:Name="ResultNumber"
-                                       RelativePanel.LeftOf="Image"
-                                       Text="{Binding FianlIndex}"
-                                       FontSize="36"
-                                       Foreground="DarkGreen"
-                                       RelativePanel.AlignLeftWithPanel="True"/>
+                        <RelativePanel x:Name="Test">
+                            
                             <Image x:Name="Image"
                                    Height="56"
                                    Margin="0,0,12,0"
@@ -79,23 +76,26 @@
                                        RelativePanel.Below="Address"
                                        FontFamily="Segoe MDL2 Assets"
                                        Text="{Binding Rating}"/>
+                            
 
                         </RelativePanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <TextBlock x:Name="Number"
+                                       FontSize="36"
+                                       Text="{Binding FinalIndexes}"/>
             </ListView>
+            
             <RelativePanel x:Name="SearchBar"
                   RelativePanel.AlignBottomWithPanel="True"
                   RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignRightWithPanel="True">
                 <TextBox x:Name="searchInput"
-                         Margin="36,36,36,36"
                          Style="{StaticResource AutoSuggestBoxTextBoxStyle}"
                          TextWrapping="NoWrap"
                          Text="{Binding CuisineType, Mode=TwoWay}"
                          FontSize="24"
-                         Foreground="DarkGreen"
-                         Background="Black"  
+                          
                          PlaceholderText="Search for a Cuisine" 
                          RelativePanel.AlignLeftWithPanel="True"/>
 
@@ -103,18 +103,20 @@
                 <Button x:Name="button_Search"
                         Content="Search"
                         FontSize="24"
-                        Foreground="DarkGreen"
-                        RelativePanel.RightOf="searchInput"
-                        RelativePanel.AlignVerticalCenterWith="searchInput"/>
+                        Foreground="#FFCB202D"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignVerticalCenterWith="searchInput" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        />
 
             </RelativePanel>
         </RelativePanel>
 
-        <RelativePanel Grid.Column="1" Background="Black">
+        <RelativePanel Grid.Column="1" 
+                       Background="#FFF3F3F3">
             <TextBlock x:Name="RestaruntInfoPanel"
                        Margin="12,12,36,12"
-                       Style="{StaticResource HeaderTextBlockStyle}"
-                       Foreground="DarkGreen"
+                       Style="{StaticResource TitleTextBlockStyle}"
+                       Foreground="#FFCB202D"
                        Text="Restaurant Detail" />
             <WebView x:Name="RestaurantInfo"
                      Source="{Binding ElementName=RestaurantResultPanel, Path=SelectedItem.URL}"
@@ -127,11 +129,12 @@
 
         </RelativePanel>
 
-        <RelativePanel Grid.Column="2" Background="Black">
+        <RelativePanel Grid.Column="2" 
+                       Background="#FFF3F3F3">
             <TextBlock x:Name="SlotMachinePanel"
                        Margin="12,12,36,12"
-                       Style="{StaticResource HeaderTextBlockStyle}"
-                       Foreground="DarkGreen"
+                       Style="{StaticResource TitleTextBlockStyle}"
+                       Foreground="#FFCB202D"
                        Text="Binary Slots"  />
             <TextBlock x:Name="Instruction_TextBlock"
                        RelativePanel.Below="SlotMachinePanel"
@@ -140,11 +143,11 @@
                        Text="Welcome to Meal Match! The app that ends the conversation of where to go for lunch. Simply search for a type of Cuisine like Mexican, Chinese, or Singaporean food. The top 8 results near the Reactor will appear. You can simply choose a place on your own or spin the Binary Slot Machine to select a restaruant for you. For example: 0 1 1 = 3 so go to Restaurnt 3 on the list."
                        Style="{StaticResource BaseTextBlockStyle}"
                        TextWrapping="WrapWholeWords"
-                       Foreground="DarkGreen"
+                       Foreground="#FF080D0F"
                        />
             <Image x:Name="imageslot1"
-                     Height="200"
-                     Width="200"
+                     Height="100"
+                     Width="100"
                      RelativePanel.AlignHorizontalCenterWithPanel="False"
                      RelativePanel.AlignVerticalCenterWithPanel="True"
                      />
@@ -164,7 +167,7 @@
             <Button x:Name="spinButton"
                     Content="SPIN"
                     FontSize="72"
-                    Foreground="DarkGreen"
+                    Foreground="#FFCB202D"
                     RelativePanel.Below="imageslot2"
                     RelativePanel.AlignHorizontalCenterWithPanel="True" 
                     Padding="36,4"
@@ -183,14 +186,14 @@
                     Content="&#xE712;"
                     FontFamily="Segoe MDL2 Assets"
                     FontSize="36"
-                    Foreground="DarkGreen"
+                    Foreground="#FFCB202D"
                     Background="Transparent" >
                 <Button.Flyout>
                     <Flyout>
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="About"
-                                           Foreground="DarkGreen"
+                                           Foreground="#FFCB202D"
                                            FontSize="24"
                                            Tapped="TextBlock_Tapped"/>
                             </StackPanel>
@@ -202,6 +205,29 @@
                     
         </RelativePanel>
 
+        <!-- Responsive Controls -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+
+                <!-- 720 - Phone Breakpoint -->
+                <VisualState x:Name="HoloLens">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="1079"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ResultsPanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
+                        <Setter Target="RestaruntInfoPanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
+                        <Setter Target="SlotMachinePanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!-- 720 - Tablet, Large Phone Breakpoint -->
+
+                <!-- 1024 - Phone Breakpoint -->
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <!-- End Responsive Controls -->
 
     </Grid>
 </Page>

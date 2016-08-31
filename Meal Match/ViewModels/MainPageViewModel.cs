@@ -50,7 +50,8 @@ namespace Meal_Match.ViewModels
                             {
                                 Restaurants.Add(restaurant);
                                 var Indexes = Restaurants.Count -1;
-                                var FinalIndex = Indexes.ToString(); //Find Out How to show this on the XAML!!!!!
+                                _FinalIndexes = Indexes.ToString(); //Find Out How to show this on the XAML!!!!!
+                                
                             }
                         });
                 }
