@@ -107,7 +107,9 @@
                         Margin="12"
                         Foreground="#FFCB202D"
                         RelativePanel.AlignRightWithPanel="True"
-                        RelativePanel.AlignVerticalCenterWith="searchInput" HorizontalAlignment="Left" VerticalAlignment="Center"
+                        RelativePanel.AlignVerticalCenterWith="searchInput" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" RenderTransformOrigin="0.484,0.352"
                         />
 
             </RelativePanel>
@@ -224,8 +226,8 @@
                         <Setter Target="SlotMachinePanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
                         <Setter Target="searchInput.Width" Value="500" />
                         <Setter Target="searchInput.Margin" Value="24" />
-                        <Setter Target="searchInput.FontSize" Value="36" />
-                        <Setter Target="button_Search.Margin" Value="36" />
+                        <Setter Target="searchInput.FontSize" Value="24" />
+                        <Setter Target="button_Search.Margin" Value="24" />
                         <Setter Target="button_Search.FontSize" Value="24" />
                         <Setter Target="imageslot1.Height" Value="200" />
                         <Setter Target="imageslot1.Width" Value="200" />
