@@ -40,7 +40,7 @@
                       RelativePanel.Below="ResultsPanel"
                       RelativePanel.Above="SearchBar"
                       SelectionMode="Single"
-                      Background="#FFF3F3F3">
+                      Background="#FFF3F3F3" Margin="0,0,-0.333,61">
                 
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
@@ -48,7 +48,7 @@
                         <Setter Property="Padding" Value="24,12,12,12" />
                     </Style>
                 </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
+                <ListView.ItemTemplate >
                     <DataTemplate>
                         <RelativePanel x:Name="Test">
                             
@@ -91,18 +91,20 @@
                   RelativePanel.AlignLeftWithPanel="True"
                   RelativePanel.AlignRightWithPanel="True">
                 <TextBox x:Name="searchInput"
+                         Margin="12"
                          Style="{StaticResource AutoSuggestBoxTextBoxStyle}"
                          TextWrapping="NoWrap"
                          Text="{Binding CuisineType, Mode=TwoWay}"
-                         FontSize="24"
-                          
+                         FontSize="12"
+                         Width="180"
                          PlaceholderText="Search for a Cuisine" 
                          RelativePanel.AlignLeftWithPanel="True"/>
 
 
                 <Button x:Name="button_Search"
                         Content="Search"
-                        FontSize="24"
+                        FontSize="12"
+                        Margin="12"
                         Foreground="#FFCB202D"
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignVerticalCenterWith="searchInput" HorizontalAlignment="Left" VerticalAlignment="Center"
@@ -124,8 +126,9 @@
                      RelativePanel.AlignLeftWithPanel="True"
                      RelativePanel.AlignRightWithPanel="True"
                      RelativePanel.Below="RestaruntInfoPanel"
-                     DefaultBackgroundColor="Black"/>
-                     
+                     DefaultBackgroundColor="#FFF3F3F3"/>
+            
+
 
         </RelativePanel>
 
@@ -146,32 +149,32 @@
                        Foreground="#FF080D0F"
                        />
             <Image x:Name="imageslot1"
-                     Height="100"
-                     Width="100"
+                     Height="50"
+                     Width="50"
                      RelativePanel.AlignHorizontalCenterWithPanel="False"
-                     RelativePanel.AlignVerticalCenterWithPanel="True"
+                     RelativePanel.AlignVerticalCenterWithPanel="True" Margin="28,55.667,-28,-55.667"
                      />
 
 
             <Image x:Name="imageslot2"
-                   Height="200"
-                   Width="200"
+                   Height="50"
+                   Width="50"
                    RelativePanel.AlignHorizontalCenterWithPanel="True"
-                   RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                   RelativePanel.AlignVerticalCenterWithPanel="True" Margin="-2.333,55.667,2.333,-55.667"/>
             <Image x:Name="imageslot3"
-                   Height="200"
-                   Width="200"
+                   Height="50"
+                   Width="50"
                    RelativePanel.AlignRightWithPanel="True"
-                   RelativePanel.AlignVerticalCenterWithPanel="True"
+                   RelativePanel.AlignVerticalCenterWithPanel="True" Margin="-28.667,55.667,28.667,-55.667"
                    />
             <Button x:Name="spinButton"
                     Content="SPIN"
-                    FontSize="72"
+                    FontSize="36"
                     Foreground="#FFCB202D"
                     RelativePanel.Below="imageslot2"
                     RelativePanel.AlignHorizontalCenterWithPanel="True" 
                     Padding="36,4"
-                    Margin="0,48,0,0"
+                    Margin="-1,108.667,0,-60.667"
                     Click="spinButton_Click" />
             <MediaElement x:Name="myMediaElement"
                           Height="1"
@@ -212,12 +215,24 @@
                 <!-- 720 - Phone Breakpoint -->
                 <VisualState x:Name="HoloLens">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowHeight="1079"/>
+                        <AdaptiveTrigger MinWindowHeight="720"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="ResultsPanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
                         <Setter Target="RestaruntInfoPanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
                         <Setter Target="SlotMachinePanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
+                        <Setter Target="searchInput.Width" Value="500" />
+                        <Setter Target="searchInput.Margin" Value="24" />
+                        <Setter Target="searchInput.FontSize" Value="36" />
+                        <Setter Target="button_Search.Margin" Value="36" />
+                        <Setter Target="button_Search.FontSize" Value="24" />
+                        <Setter Target="imageslot1.Height" Value="200" />
+                        <Setter Target="imageslot1.Width" Value="200" />
+                        <Setter Target="imageslot2.Height" Value="200" />
+                        <Setter Target="imageslot2.Width" Value="200" />
+                        <Setter Target="imageslot3.Height" Value="200" />
+                        <Setter Target="imageslot3.Width" Value="200" />
+                        <Setter Target="Instruction_TextBlock.Style" Value="{StaticResource TitleTextBlockStyle}" />
                     </VisualState.Setters>
                 </VisualState>
 
