@@ -141,9 +141,10 @@
                        Text="Binary Slots"  />
             <TextBlock x:Name="Instruction_TextBlock"
                        RelativePanel.Below="SlotMachinePanel"
+                       Padding="4"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
-                       Text="Welcome to Meal Match! The app that ends the conversation of where to go for lunch. Simply search for a type of Cuisine like Mexican, Chinese, or Singaporean food. The top 8 results near the Reactor will appear. You can simply choose a place on your own or spin the Binary Slot Machine to select a restaruant for you. For example: 0 1 1 = 3 so go to Restaurnt 3 on the list."
+                       Text="Welcome to Meal Match! The app that ends the conversation of where to go for lunch.&#x0a;000: Search for a Type of Cuisine in the bottom left&#x0a;001: Select a Restraunt to view details&#x0a;010: Click Spin to have the Slot Machine select a restaurant for you"
                        Style="{StaticResource BaseTextBlockStyle}"
                        TextWrapping="WrapWholeWords"
                        Foreground="#FF080D0F"
@@ -232,7 +233,7 @@
                         <Setter Target="imageslot2.Width" Value="200" />
                         <Setter Target="imageslot3.Height" Value="200" />
                         <Setter Target="imageslot3.Width" Value="200" />
-                        <Setter Target="Instruction_TextBlock.Style" Value="{StaticResource TitleTextBlockStyle}" />
+                        <Setter Target="Instruction_TextBlock.Style" Value="{StaticResource SubheaderTextBlockStyle}" />
                     </VisualState.Setters>
                 </VisualState>
 
