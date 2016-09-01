@@ -60,7 +60,7 @@
                                        FontSize="24"
                                        Padding="0,0,8,0"
                                        RelativePanel.RightOf="Image"
-                                       Foreground="DarkGreen"
+                                       Foreground="#FFCB202D"
                                        Text="{Binding Name}"
                                        TextTrimming="CharacterEllipsis" />
                             <TextBlock x:Name="Address"
@@ -235,6 +235,7 @@
                         <Setter Target="imageslot2.Width" Value="200" />
                         <Setter Target="imageslot3.Height" Value="200" />
                         <Setter Target="imageslot3.Width" Value="200" />
+                        <Setter Target="spinButton.FontSize" Value="72" />
                         <Setter Target="Instruction_TextBlock.Style" Value="{StaticResource SubheaderTextBlockStyle}" />
                     </VisualState.Setters>
                 </VisualState>
