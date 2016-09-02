@@ -52,12 +52,12 @@
                     <DataTemplate>
                         <RelativePanel>
                             <Image x:Name="Image"
-                                   Height="50"
-                                   Width="50"
+                                   Height="100"
+                                   Width="100"
                                    Margin="0,0,12,0"
                                    Source="{Binding Thumbnail}" />
                             <TextBlock x:Name="Name"
-                                       FontSize="18"
+                                       FontSize="24"
                                        Padding="0,0,8,0"
                                        RelativePanel.RightOf="Image"
                                        Foreground="#FFCB202D"
