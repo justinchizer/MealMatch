@@ -49,8 +49,6 @@ namespace Meal_Match.ViewModels
                             foreach (var restaurant in restaurants)
                             {
                                 Restaurants.Add(restaurant);
-                                var Indexes = Restaurants.Count -1;
-                                _FinalIndexes = Indexes.ToString(); //Find Out How to show this on the XAML!!!!!
                                 
                             }
                         });
@@ -63,7 +61,6 @@ namespace Meal_Match.ViewModels
         string _CuisineType = default(string);
         public string CuisineType { get { return _CuisineType; } set { Set(ref _CuisineType, value); } }
 
-        string _FinalIndexes = default(string);
-        public string FinalIndexes { get { return _FinalIndexes; } set { Set(ref _FinalIndexes, value); } }
+       
     }
 }

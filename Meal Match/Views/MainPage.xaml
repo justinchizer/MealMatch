@@ -50,8 +50,7 @@
                 </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate >
                     <DataTemplate>
-                        <RelativePanel x:Name="Test">
-                            
+                        <RelativePanel>
                             <Image x:Name="Image"
                                    Height="50"
                                    Width="50"
@@ -77,14 +76,11 @@
                                        RelativePanel.Below="Address"
                                        FontFamily="Segoe MDL2 Assets"
                                        Text="{Binding Rating}"/>
-                            
+
 
                         </RelativePanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                <TextBlock x:Name="Number"
-                                       FontSize="36"
-                                       Text="{Binding FinalIndexes}"/>
             </ListView>
             
             <RelativePanel x:Name="SearchBar"
@@ -225,7 +221,7 @@
                         <Setter Target="ResultsPanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
                         <Setter Target="RestaruntInfoPanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
                         <Setter Target="SlotMachinePanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
-                        <Setter Target="searchInput.Width" Value="500" />
+                        <Setter Target="searchInput.Width" Value="400" />
                         <Setter Target="searchInput.Margin" Value="24" />
                         <Setter Target="searchInput.FontSize" Value="24" />
                         <Setter Target="button_Search.Margin" Value="24" />
@@ -237,9 +233,7 @@
                         <Setter Target="imageslot3.Height" Value="200" />
                         <Setter Target="imageslot3.Width" Value="200" />
                         <Setter Target="spinButton.FontSize" Value="72" />
-                        <Setter Target="Image.Height" Value="100" />
-                        <Setter Target="Image.Width" Value="100" />
-                        <Setter Target="Name.FontSize" Value="24" />
+                        
                         <Setter Target="Instruction_TextBlock.Style" Value="{StaticResource SubheaderTextBlockStyle}" />
                     </VisualState.Setters>
                 </VisualState>
