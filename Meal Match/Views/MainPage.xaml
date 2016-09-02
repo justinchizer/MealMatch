@@ -53,11 +53,12 @@
                         <RelativePanel x:Name="Test">
                             
                             <Image x:Name="Image"
-                                   Height="56"
+                                   Height="50"
+                                   Width="50"
                                    Margin="0,0,12,0"
                                    Source="{Binding Thumbnail}" />
                             <TextBlock x:Name="Name"
-                                       FontSize="24"
+                                       FontSize="18"
                                        Padding="0,0,8,0"
                                        RelativePanel.RightOf="Image"
                                        Foreground="#FFCB202D"
@@ -236,6 +237,9 @@
                         <Setter Target="imageslot3.Height" Value="200" />
                         <Setter Target="imageslot3.Width" Value="200" />
                         <Setter Target="spinButton.FontSize" Value="72" />
+                        <Setter Target="Image.Height" Value="100" />
+                        <Setter Target="Image.Width" Value="100" />
+                        <Setter Target="Name.FontSize" Value="24" />
                         <Setter Target="Instruction_TextBlock.Style" Value="{StaticResource SubheaderTextBlockStyle}" />
                     </VisualState.Setters>
                 </VisualState>
