@@ -221,7 +221,7 @@
                         <Setter Target="ResultsPanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
                         <Setter Target="RestaruntInfoPanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
                         <Setter Target="SlotMachinePanel.Style" Value="{StaticResource HeaderTextBlockStyle}" />
-                        <Setter Target="searchInput.Width" Value="400" />
+                        <Setter Target="searchInput.Width" Value="500" />
                         <Setter Target="searchInput.Margin" Value="24" />
                         <Setter Target="searchInput.FontSize" Value="24" />
                         <Setter Target="button_Search.Margin" Value="24" />
